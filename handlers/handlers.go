@@ -13,6 +13,8 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/register", middleW.CheckDB(routers.Register)).Methods("POST")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
