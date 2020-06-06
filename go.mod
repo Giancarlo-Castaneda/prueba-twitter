@@ -1,4 +1,4 @@
-module https: //github.com/GicGa-iOS/prueba-twitter
+module github.com/GicGa-iOS/prueba-twitter
 
 go 1.14
 
