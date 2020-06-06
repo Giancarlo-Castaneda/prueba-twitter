@@ -16,10 +16,11 @@ func Handlers() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
-		PORT = "8080"
+		PORT = "8081"
 	}
 
 	handler := cors.AllowAll().Handler(router)

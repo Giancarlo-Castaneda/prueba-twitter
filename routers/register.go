@@ -26,7 +26,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, found, _ := bd.CheckUserExists(t.Email)
-	if found {
+	if found == true {
 		http.Error(w, "There is already a registered user with that email: "+err.Error(), 400)
 		return
 	}
@@ -37,7 +37,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !status {
+	if status == false {
 		http.Error(w, "Could not insert user registry", 400)
 		return
 	}
