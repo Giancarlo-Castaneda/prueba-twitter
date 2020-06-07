@@ -29,6 +29,7 @@ func Handlers() {
 	router.HandleFunc("/getBanner", middlew.CheckDB(routers.GetBanner)).Methods("GET")
 
 	router.HandleFunc("/relateUsers", middlew.CheckDB(middlew.ValidJWT(routers.Relate))).Methods("POST")
+	router.HandleFunc("/deleteRelationship", middlew.CheckDB(middlew.ValidJWT(routers.RemoveRelationship))).Methods("DELETE")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
