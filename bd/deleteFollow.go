@@ -7,8 +7,8 @@ import (
 	"github.com/GicGa-iOS/prueba-twitter/models"
 )
 
-/*DeleteRelationship delete the relationship in database*/
-func DeleteRelationship(t models.Relation) (bool, error) {
+/*DeleteFollow delete the relationship in database*/
+func DeleteFollow(t models.Relation) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
