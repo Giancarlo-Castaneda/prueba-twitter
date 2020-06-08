@@ -7,8 +7,8 @@ import (
 	"github.com/GicGa-iOS/prueba-twitter/models"
 )
 
-/*Relate will record the relationship between users*/
-func Relate(w http.ResponseWriter, r *http.Request) {
+/*FollowUser will record the relationship between users*/
+func FollowUser(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
 		http.Error(w, "You must send id parameter", http.StatusBadRequest)

@@ -20,7 +20,7 @@ func DeleteTweet(ID string, UserID string) error {
 
 	condition := bson.M{
 		"_id":    objID,
-		"userID": UserID,
+		"userid": UserID,
 	}
 
 	_, err := col.DeleteOne(ctx, condition)

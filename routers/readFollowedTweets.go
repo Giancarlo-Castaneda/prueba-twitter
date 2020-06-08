@@ -8,8 +8,8 @@ import (
 	"github.com/GicGa-iOS/prueba-twitter/bd"
 )
 
-/*ReadTweetsFollowers read followers' tweets*/
-func ReadTweetsFollowers(w http.ResponseWriter, r *http.Request) {
+/*ReadFollowedTweets read followed user tweets*/
+func ReadFollowedTweets(w http.ResponseWriter, r *http.Request) {
 	if len(r.URL.Query().Get("page")) < 1 {
 		http.Error(w, "You must send id parameter", http.StatusBadRequest)
 		return
@@ -20,7 +20,7 @@ func ReadTweetsFollowers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response, correct := bd.ReadTweetsFollowers(IDUser, page)
+	response, correct := bd.GetFollowedTweets(IDUser, page)
 	if !correct {
 		http.Error(w, "Error reading tweets", http.StatusBadRequest)
 		return

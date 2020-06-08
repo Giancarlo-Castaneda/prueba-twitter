@@ -1,6 +1,6 @@
 package bd
 
-import(
+import (
 	"context"
 	"time"
 
@@ -10,7 +10,7 @@ import(
 )
 
 /*UpdateRegister allows modifying the user's profile*/
-func UpdateRegister(u models.User, ID string) (bool, error)  {
+func UpdateRegister(u models.User, ID string) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -22,9 +22,9 @@ func UpdateRegister(u models.User, ID string) (bool, error)  {
 		register["name"] = u.Name
 	}
 	if len(u.LastName) > 0 {
-		register["lastName"] = u.LastName
+		register["lastname"] = u.LastName
 	}
-	register["birthDate"] = u.BirthDate
+	register["birthdate"] = u.BirthDate
 	if len(u.Avatar) > 0 {
 		register["avatar"] = u.Avatar
 	}
@@ -38,7 +38,7 @@ func UpdateRegister(u models.User, ID string) (bool, error)  {
 		register["location"] = u.Location
 	}
 	if len(u.WebSite) > 0 {
-		register["webSite"] = u.WebSite
+		register["website"] = u.WebSite
 	}
 
 	updateString := bson.M{
@@ -49,7 +49,7 @@ func UpdateRegister(u models.User, ID string) (bool, error)  {
 	filter := bson.M{"_id": bson.M{"$eq": objID}}
 
 	_, err := col.UpdateOne(ctx, filter, updateString)
-	if err != nil{
+	if err != nil {
 		return false, err
 	}
 
